@@ -1,7 +1,6 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import Logo from '../../assets/logo.png';
-import { Container, Title, HeaderContainer } from "./style";
+import { Container, HeaderContainer } from "./style";
 import { Header } from '../../components/Header'
+import { Highligth } from "@components/Highligth"; 
 
 
 export function Teams(){
@@ -12,7 +11,10 @@ export function Teams(){
                 
                 <Header />
                 
-
+                <Highligth 
+                    title="Equipes"
+                    subtitle="Preparem suas equipes"
+                />
             </HeaderContainer>
 
         </Container>
