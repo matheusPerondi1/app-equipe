@@ -12,8 +12,9 @@ export function Header({showBackButton = false}: Props){
             {
                 showBackButton &&
                 <BackButtom>
-                <BackIcon name="arrow-back-circle-sharp"  />
-            </BackButtom>}
+                    <BackIcon name="arrow-back-circle-sharp"  />
+                </BackButtom>
+            }
 
 
             <Logo source={logoImg}/>
