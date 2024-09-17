@@ -5,6 +5,7 @@ import { TeamCard } from "@components/TeamCard";
 import { useState } from "react";
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
+import { Buttom } from "@components/Buttom";
 
 
 export function Teams(){
@@ -39,7 +40,7 @@ export function Teams(){
                 
                 />
 
-                
+                <Buttom  title="Criar uma nova equipe" type="SECONDARY"/>
             </Content>
 
 
