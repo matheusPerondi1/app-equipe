@@ -40,7 +40,7 @@ export function Teams(){
                 
                 />
 
-                <Buttom  title="Criar uma nova equipe" type="SECONDARY"/>
+                <Buttom  title="Criar uma nova equipe"/>
             </Content>
 
 

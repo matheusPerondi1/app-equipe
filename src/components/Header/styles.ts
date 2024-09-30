@@ -5,13 +5,13 @@ export const Container = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-left: 24;
-    padding-right: 24;
+    padding-left: 24px;
+    padding-right: 24px;
 `;
 
 export const Logo = styled.Image`
-    width: 65;
-    height: 44;
+    width: 65px;
+    height: 44px;
 `;
 
 export const BackButtom = styled.View`
