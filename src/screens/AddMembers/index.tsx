@@ -3,6 +3,7 @@ import { Container, Content, HeaderContainer } from "./style";
 import { Highligth } from "@components/Highligth";
 import { Input } from "@components/Input";
 import { Buttom } from "@components/Buttom";
+import { ButtomIcon } from "@components/ButtomIcon";
 
 
 
@@ -23,6 +24,7 @@ export function AddMembers(){
             <Content>
 
                 <Input placeholder="Adicione um membro" />
+                <ButtomIcon icon="add-circle-outline" />
 
                 <Buttom  title="Deletar equipe" type="SECONDARY"/>
             </Content>
