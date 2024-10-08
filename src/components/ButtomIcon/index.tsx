@@ -8,10 +8,10 @@ type Props = TouchableOpacityProps &{
     type?: ButtomIconTypeStyleProps;
 }
 
-export function ButtomIcon({ type = 'PRIMARY',...rest}: Props){
+export function ButtomIcon({ icon ,type = 'PRIMARY',...rest}: Props){
     return(
         <Container type={type} {...rest}>
-            <Icon name="add-circle-outline"  />
+            <Icon name={icon}  />
         </Container>
     )
 }

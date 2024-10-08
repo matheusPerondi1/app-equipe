@@ -24,3 +24,7 @@ export const Content = styled.View`
     padding: 24px;
     justify-content: space-between;
 `;
+
+export const InputContainer = styled.View`
+    flex-direction: row;
+`;

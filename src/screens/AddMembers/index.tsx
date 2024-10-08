@@ -1,5 +1,5 @@
 import { Header } from "@components/Header";
-import { Container, Content, HeaderContainer } from "./style";
+import { Container, Content, HeaderContainer, InputContainer } from "./style";
 import { Highligth } from "@components/Highligth";
 import { Input } from "@components/Input";
 import { Buttom } from "@components/Buttom";
@@ -22,10 +22,15 @@ export function AddMembers(){
             </HeaderContainer>
 
             <Content>
-
-                <Input placeholder="Adicione um membro" />
-                <ButtomIcon icon="add-circle-outline" />
-
+                <InputContainer>
+                    <Input placeholder="Adicione um membro" 
+                     style={{borderTopRightRadius: 0, borderBottomRightRadius: 0}}
+                     />
+                    <ButtomIcon icon="add-circle-outline" 
+                    style= {{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
+                    />
+                </InputContainer>
+                
                 <Buttom  title="Deletar equipe" type="SECONDARY"/>
             </Content>
 
