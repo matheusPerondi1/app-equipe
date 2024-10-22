@@ -7,6 +7,7 @@ import { ButtomIcon } from "@components/ButtomIcon";
 import { Tab } from "@components/Tab";
 import { FlatList } from "react-native";
 import { useState } from "react";
+import { Tag } from "@components/Tag";
 
 
 
@@ -48,9 +49,10 @@ export function AddMembers(){
                                 onPress={() => setTab(item)}
                             />
                         )}
-                    horizontal
+                        horizontal
                     />
-                    
+
+                    <Tag text={0}/>
                 </Tabs>
                 
                 
