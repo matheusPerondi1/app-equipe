@@ -8,6 +8,7 @@ import { Tab } from "@components/Tab";
 import { FlatList } from "react-native";
 import { useState } from "react";
 import { Tag } from "@components/Tag";
+import { CardMember } from "@components/CardMember";
 
 
 
@@ -54,6 +55,8 @@ export function AddMembers(){
 
                     <Tag text={0}/>
                 </Tabs>
+
+                <CardMember name="Matheus"/>
                 
                 
                 
