@@ -11,7 +11,7 @@ type Props = TouchableOpacityProps &{
 export function ButtomIcon({ icon ,type = 'PRIMARY',...rest}: Props){
     return(
         <Container type={type} {...rest}>
-            <Icon name={icon}  />
+            <Icon name={icon} />
         </Container>
     )
 }

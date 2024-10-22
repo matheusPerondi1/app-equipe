@@ -1,7 +1,7 @@
 import { TextInput, TextInputProps } from "react-native";
 import { Container } from "./style";
 import { useTheme } from "styled-components/native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
+
 
 
 

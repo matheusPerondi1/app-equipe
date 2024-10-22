@@ -1,13 +1,19 @@
 import { Header } from "@components/Header";
-import { Container, Content, HeaderContainer, InputContainer } from "./style";
+import { Container, Content, HeaderContainer, InputContainer, Tabs, Title } from "./style";
 import { Highligth } from "@components/Highligth";
 import { Input } from "@components/Input";
 import { Buttom } from "@components/Buttom";
 import { ButtomIcon } from "@components/ButtomIcon";
+import { Tab } from "@components/Tab";
+import { FlatList } from "react-native";
+import { useState } from "react";
+
 
 
 
 export function AddMembers(){
+    const [tab, setTab] = useState("Titular")
+
     return (
         <Container>
 
@@ -30,6 +36,24 @@ export function AddMembers(){
                     style= {{borderTopLeftRadius: 0, borderBottomLeftRadius: 0}}
                     />
                 </InputContainer>
+
+                <Tabs>
+                    <FlatList
+                        data={["Titular", "Reserva"]}
+                        keyExtractor={(item) => item}
+                        renderItem={({item}) => (
+                            <Tab
+                                title={item}
+                                isActive={item === tab}
+                                onPress={() => setTab(item)}
+                            />
+                        )}
+                    horizontal
+                    />
+                    
+                </Tabs>
+                
+                
                 
                 <Buttom  title="Deletar equipe" type="SECONDARY"/>
             </Content>
