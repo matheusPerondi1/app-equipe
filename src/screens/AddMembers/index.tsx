@@ -9,12 +9,14 @@ import { FlatList } from "react-native";
 import { useState } from "react";
 import { Tag } from "@components/Tag";
 import { CardMember } from "@components/CardMember";
+import { ListEmpty } from "@components/ListEmpty";
 
 
 
 
 export function AddMembers(){
-    const [tab, setTab] = useState("Titular")
+    const [tab, setTab] = useState<string>("Titular")
+    const [members, setMembers] = useState<string[]>(["Matheus", "Giulia", ]);
 
 
     return (
@@ -57,7 +59,20 @@ export function AddMembers(){
                     <Tag text={0}/>
                 </Tabs>
 
-                <CardMember name="Matheus" onRemove={() => console.log("REMOVE")}/>
+                <FlatList
+                    data={members}
+                    keyExtractor={item => item}
+                    renderItem={({item}) => (
+                        <CardMember
+                            name={item}
+                            onRemove={() => console.log()}
+                        />
+                    )}
+                    ListEmptyComponent={<ListEmpty message="Não há membros adicionados!" />}
+                    contentContainerStyle={[{paddingBottom: 100}, members.length === 0 && {flex: 1}]}
+                    showsVerticalScrollIndicator={false}
+                />
+                
                 
                 
                 
