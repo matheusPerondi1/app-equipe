@@ -10,10 +10,10 @@ type Props = TouchableOpacityProps &{
     borderRadius?: ButtonIconBorderRadiusStyleProps;
 }
 
-export function ButtomIcon({ icon ,type = 'PRIMARY', size = 'MD', borderRadius = 'FULL', ...rest}: Props){
+export function ButtomIcon({ icon ,type = 'PRIMARY', size = 'MD', borderRadius = 'RIGHT', ...rest}: Props){
     return(
         <Container 
-        borderRadius="FULL"
+        borderRadius="RIGHT"
         size={size} 
         type={type} 
         {...rest}>

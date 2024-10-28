@@ -16,6 +16,7 @@ import { CardMember } from "@components/CardMember";
 export function AddMembers(){
     const [tab, setTab] = useState("Titular")
 
+
     return (
         <Container>
 
@@ -56,7 +57,7 @@ export function AddMembers(){
                     <Tag text={0}/>
                 </Tabs>
 
-                <CardMember name="Matheus"/>
+                <CardMember name="Matheus" onRemove={() => console.log("REMOVE")}/>
                 
                 
                 

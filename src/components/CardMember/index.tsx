@@ -3,9 +3,10 @@ import { Container, Name } from "./style";
 
 type Props = {
     name: string;
+    onRemove: () => void;
 }
 
-export function CardMember({ name }: Props){
+export function CardMember({ name, onRemove }: Props){
     return (
         <Container>
             <Name> 
@@ -16,6 +17,7 @@ export function CardMember({ name }: Props){
                 type="SECONDARY"
                 size="SM"
                 borderRadius="RIGHT"
+                onPress={onRemove}
             />
         </Container>
     )
