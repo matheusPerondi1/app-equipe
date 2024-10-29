@@ -14,6 +14,10 @@ export function Teams(){
 
     const navigation = useNavigation();
 
+    function handleNewTeam(){
+        navigation.navigate("newTeam")
+    }
+
     return (
         <Container>
 
@@ -43,7 +47,7 @@ export function Teams(){
                 
                 />
 
-                <Buttom  title="Criar uma nova equipe" onPress={() => navigation.navigate("newTeam")}/>
+                <Buttom  title="Criar uma nova equipe" onPress={() => handleNewTeam}/>
             </Content>
 
 
