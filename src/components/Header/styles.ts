@@ -14,7 +14,7 @@ export const Logo = styled.Image`
     height: 44px;
 `;
 
-export const BackButtom = styled.View`
+export const BackButtom = styled.TouchableOpacity`
     flex: 1;
 `;
 

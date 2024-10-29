@@ -5,6 +5,7 @@ import { Buttom } from "@components/Buttom";
 import { TextInput } from "react-native";
 import { Input } from "@components/Input";
 import { useNavigation } from "@react-navigation/native";
+import { Name } from "@components/CardMember/style";
 
 
 export function NewTeam(){
@@ -15,7 +16,7 @@ export function NewTeam(){
 
             <HeaderContainer>
                 
-                <Header showBackButton />
+                <Header showBackButton  />
                 
                 <Highligth 
                     title="Nova Equipe"

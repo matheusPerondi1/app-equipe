@@ -47,7 +47,7 @@ export function Teams(){
                 
                 />
 
-                <Buttom  title="Criar uma nova equipe" onPress={() => handleNewTeam}/>
+                <Buttom  title="Criar uma nova equipe" onPress={handleNewTeam}/>
             </Content>
 
 
