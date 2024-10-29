@@ -6,10 +6,16 @@ import { TextInput } from "react-native";
 import { Input } from "@components/Input";
 import { useNavigation } from "@react-navigation/native";
 import { Name } from "@components/CardMember/style";
+import { useState } from "react";
 
 
 export function NewTeam(){
+    const [team, setTeam] = useState<string>("");
     const navigation = useNavigation();
+
+    function handleAddMembers(){
+        navigation.navigate("addMembers", {team})
+    }
     
     return (
         <Container>
@@ -26,9 +32,9 @@ export function NewTeam(){
 
             <Content>
 
-                <Input placeholder="Nome da equipe" />
+                <Input placeholder="Nome da equipe"  onChangeText={setTeam}/>
 
-                <Buttom  title="Criar equipe" onPress={() => navigation.navigate("addMembers")}/>
+                <Buttom  title="Criar equipe" onPress={handleAddMembers}/>
             </Content>
 
         </Container>
