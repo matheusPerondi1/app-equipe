@@ -4,9 +4,12 @@ import { Highligth } from "@components/Highligth";
 import { Buttom } from "@components/Buttom";
 import { TextInput } from "react-native";
 import { Input } from "@components/Input";
+import { useNavigation } from "@react-navigation/native";
 
 
 export function NewTeam(){
+    const navigation = useNavigation();
+    
     return (
         <Container>
 
@@ -24,7 +27,7 @@ export function NewTeam(){
 
                 <Input placeholder="Nome da equipe" />
 
-                <Buttom  title="Criar equipe"/>
+                <Buttom  title="Criar equipe" onPress={() => navigation.navigate("addMembers")}/>
             </Content>
 
         </Container>

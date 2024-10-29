@@ -6,15 +6,8 @@ export const Container = styled.View`
 `;
   
 
-export const Title = styled.Text`
-
-    font-family: ${({theme}) => theme.FONT_FAMILY.BOLD};
-    font-size: 40px;
-`;
-
 export const HeaderContainer = styled.View`
     background-color: ${({theme}) => theme.COLORS.PURPLE_500};
-    width: 100%;
     padding-top: 54px;
     padding-bottom: 24px;
 `;

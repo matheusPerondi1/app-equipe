@@ -6,10 +6,13 @@ import { useState } from "react";
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import { Buttom } from "@components/Buttom";
+import { useNavigation } from "@react-navigation/native";
 
 
 export function Teams(){
     const [teams, setTeams] = useState<string[]>([]);
+
+    const navigation = useNavigation();
 
     return (
         <Container>
@@ -40,7 +43,7 @@ export function Teams(){
                 
                 />
 
-                <Buttom  title="Criar uma nova equipe"/>
+                <Buttom  title="Criar uma nova equipe" onPress={() => navigation.navigate("newTeam")}/>
             </Content>
 
 
