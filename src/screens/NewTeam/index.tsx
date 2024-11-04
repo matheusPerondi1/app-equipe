@@ -7,20 +7,23 @@ import { Input } from "@components/Input";
 import { useNavigation } from "@react-navigation/native";
 import { Name } from "@components/CardMember/style";
 import { useState } from "react";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 export function NewTeam(){
     const [team, setTeam] = useState<string>("");
     const navigation = useNavigation();
 
+    const insets = useSafeAreaInsets();
+
     function handleAddMembers(){
         navigation.navigate("addMembers", {team})
     }
     
     return (
-        <Container>
+        <Container style={{paddingBottom: insets.bottom}}>
 
-            <HeaderContainer>
+            <HeaderContainer style={{paddingTop: insets.top}}>
                 
                 <Header showBackButton  />
                 

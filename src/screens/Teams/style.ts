@@ -1,3 +1,4 @@
+import { Platform } from "react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
@@ -15,11 +16,10 @@ export const Title = styled.Text`
 export const HeaderContainer = styled.View`
     background-color: ${({theme}) => theme.COLORS.PURPLE_500};
     width: 100%;
-    padding-top: 54px;
-    padding-bottom: 24px;
+    padding: 24px 0;
 `;
 
 export const Content = styled.View`
     flex: 1;
-    padding: 24px;
+    padding: ${Platform.OS === 'ios' ? '24px 24px 0 24px' : '24px'};
 `;
