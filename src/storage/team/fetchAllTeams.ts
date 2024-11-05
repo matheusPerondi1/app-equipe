@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { TEAM_COLLECTION } from "../storageConfig";
 
+
 export async function fetchAllTeams(){
     try {
         const storage = await AsyncStorage.getItem(TEAM_COLLECTION);

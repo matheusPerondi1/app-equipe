@@ -11,6 +11,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createTeam } from "src/storage/team/createTeam";
 
 
+
 export function NewTeam(){
     const [team, setTeam] = useState<string>("");
     const navigation = useNavigation();
@@ -18,7 +19,7 @@ export function NewTeam(){
     const insets = useSafeAreaInsets();
 
     async function handleAddMembers(){
-        await createTeam(team)
+        await createTeam(team);
         navigation.navigate("addMembers", {team})
     }
     
