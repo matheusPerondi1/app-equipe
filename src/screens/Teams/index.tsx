@@ -2,18 +2,19 @@ import { Container, Content, HeaderContainer } from "./style";
 import { Header } from '../../components/Header'
 import { Highligth } from "@components/Highligth"; 
 import { TeamCard } from "@components/TeamCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import { Buttom } from "@components/Buttom";
 import { useNavigation } from "@react-navigation/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { fetchAllTeams } from "src/storage/team/fetchAllTeams";
 
 
 
 export function Teams(){
     const [teams, setTeams] = useState<string[]>([]);
-
+    
     const navigation = useNavigation();
 
     const insets = useSafeAreaInsets();
@@ -21,6 +22,21 @@ export function Teams(){
     function handleNewTeam(){
         navigation.navigate("newTeam")
     }
+
+
+    async function handleFetchAllTeams(){
+        try {
+            const data = await fetchAllTeams();
+
+            setTeams(data);
+        } catch (error) {
+            throw console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        handleFetchAllTeams();
+    }, [])
 
     return (
         <Container style={{ paddingBottom: insets.bottom }}>

@@ -8,6 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Name } from "@components/CardMember/style";
 import { useState } from "react";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { createTeam } from "src/storage/team/createTeam";
 
 
 export function NewTeam(){
@@ -16,7 +17,8 @@ export function NewTeam(){
 
     const insets = useSafeAreaInsets();
 
-    function handleAddMembers(){
+    async function handleAddMembers(){
+        await createTeam(team)
         navigation.navigate("addMembers", {team})
     }
     
