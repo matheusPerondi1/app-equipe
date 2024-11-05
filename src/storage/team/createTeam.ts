@@ -1,12 +1,16 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { fetchAllTeams } from "./fetchAllTeams";
+import { TEAM_COLLECTION } from "../storageConfig";
 
 export async function createTeam(newTeam: string){
     try {
 
-        const teams = await AsyncStorage.getItem("@cesul-teams:teams");
-        const storedTeams = teams ? JSON.parse(teams): [];
+        const storedTeams = await fetchAllTeams();
 
-        await AsyncStorage.setItem("@cesul-teams:teams", JSON.stringify([...storedTeams,newTeam]))
+        const storage = JSON.stringify([...storedTeams,newTeam]);
+        
+        
+        await AsyncStorage.setItem(TEAM_COLLECTION, storage)
     } catch (error) {
         throw error;
     }
