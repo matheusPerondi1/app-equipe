@@ -14,12 +14,17 @@ import { AppError } from "@utils/AppError";
 
 export function NewTeam(){
     const [team, setTeam] = useState<string>("");
+    
     const navigation = useNavigation();
 
     const insets = useSafeAreaInsets();
 
-    async function handleAddMembers(){
+    async function handleAddTeam(){
         try {
+            if (team.trim().length === 0){
+                return Alert.alert("Nova Equipe", "Informe o nome da equipe");
+            }
+            
             await createTeam(team);
             navigation.navigate("addMembers", {team})
         } catch (error) {
@@ -51,7 +56,7 @@ export function NewTeam(){
 
                 <Input placeholder="Nome da equipe"  onChangeText={setTeam}/>
 
-                <Buttom  title="Criar equipe" onPress={handleAddMembers}/>
+                <Buttom  title="Criar equipe" onPress={handleAddTeam}/>
             </Content>
 
         </Container>

@@ -2,7 +2,7 @@ import { Container, Content, HeaderContainer } from "./style";
 import { Header } from '../../components/Header'
 import { Highligth } from "@components/Highligth"; 
 import { TeamCard } from "@components/TeamCard";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import { Buttom } from "@components/Buttom";
