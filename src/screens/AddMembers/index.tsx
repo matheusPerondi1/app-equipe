@@ -6,7 +6,7 @@ import { Buttom } from "@components/Buttom";
 import { ButtomIcon } from "@components/ButtomIcon";
 import { Tab } from "@components/Tab";
 import { Alert, FlatList } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tag } from "@components/Tag";
 import { CardMember } from "@components/CardMember";
 import { ListEmpty } from "@components/ListEmpty";
@@ -14,6 +14,8 @@ import { useRoute } from "@react-navigation/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createMemberOnTeam } from "src/storage/member/createMemberOnTeam";
 import { AppError } from "@utils/AppError";
+import { getMembersByTypeAndTeam } from "src/storage/member/getMembersByTypeAndTeam";
+import { MemberStorageDTO } from "src/storage/member/memberStorageDto";
 
 type RouteParams = {
     team: string;
@@ -22,7 +24,7 @@ type RouteParams = {
 
 export function AddMembers(){
     const [tab, setTab] = useState<string>("Titular")
-    const [members, setMembers] = useState<string[]>([]);
+    const [members, setMembers] = useState<MemberStorageDTO[]>([]);
     const [newMamberName, setNewMemberName] = useState<string>("");
 
     const route = useRoute();
@@ -31,7 +33,7 @@ export function AddMembers(){
     const insets = useSafeAreaInsets();
 
     async function handleAddMember(){
-        if (newMamberName.trim.length === 0){
+        if (newMamberName.trim().length === 0){
             return Alert.alert("Novo membro", "Informe o nome do membro para adicionar.")
         }
 
@@ -51,8 +53,20 @@ export function AddMembers(){
             }
         }
 
-        
     }
+
+    async function fetchMembersByTypeAndTeam(){
+        try {
+            const memberByTeam = await getMembersByTypeAndTeam(team, tab);
+            setMembers(memberByTeam);
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(() => {
+        fetchMembersByTypeAndTeam();
+    },[tab])
 
     return (
         <Container style={{paddingBottom: insets.bottom}}>
@@ -71,7 +85,7 @@ export function AddMembers(){
                 <InputContainer>
                     <Input placeholder="Adicione um membro" 
                      style={{borderTopRightRadius: 0, borderBottomRightRadius: 0}}
-                     onChangeText={() => setNewMemberName}
+                     onChangeText={setNewMemberName}
                      value={newMamberName}
                      />
                     <ButtomIcon icon="add-circle-outline" 
@@ -99,10 +113,10 @@ export function AddMembers(){
 
                 <FlatList
                     data={members}
-                    keyExtractor={item => item}
+                    keyExtractor={item => item.name}
                     renderItem={({item}) => (
                         <CardMember
-                            name={item}
+                            name={item.name}
                             onRemove={() => console.log()}
                         />
                     )}
